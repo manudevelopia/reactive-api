@@ -1,11 +1,23 @@
 package info.developia.reactive.api;
 
+import info.developia.reactive.api.handler.CORSHandler;
+import info.developia.reactive.api.handler.HelloHandler;
+import ratpack.server.RatpackServer;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    HelloHandler helloHandler = new HelloHandler();
+
+    public static void main(String[] args) throws Exception {
+        new App().run();
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    private void run() throws Exception {
+        RatpackServer.start(server -> server
+                .handlers(chain -> chain
+                        .all(new CORSHandler())
+                        .get("user", helloHandler::hello)
+                        .get("menus", helloHandler::getMenus)
+                )
+        );
     }
 }
