@@ -1,9 +1,8 @@
 package info.developia.reactive.api.handler;
 
-import ratpack.handling.Context;
-import ratpack.handling.Handler;
-import ratpack.http.MutableHeaders;
-import ratpack.registry.Registry;
+import ratpack.core.handling.Context;
+import ratpack.core.handling.Handler;
+import ratpack.core.http.MutableHeaders;
 
 public class CORSHandler implements Handler {
     @Override
@@ -11,6 +10,6 @@ public class CORSHandler implements Handler {
         MutableHeaders headers = ctx.getResponse().getHeaders();
         headers.set("Access-Control-Allow-Origin", "*");
         headers.set("Access-Control-Allow-Headers", "x-requested-with, origin, content-type, accept");
-        ctx.next(Registry.single(String.class, "https://" + ctx.getRequest().getHeaders().get("Host") + "/todo"));
+        ctx.next();
     }
 }

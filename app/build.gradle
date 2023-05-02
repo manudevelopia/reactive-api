@@ -9,6 +9,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.ratpack:ratpack-rx2:2.0.0-rc-1'
     implementation 'com.konghq:unirest-java:3.14.2'
     runtimeOnly 'org.slf4j:slf4j-simple:1.7.21'
 }
