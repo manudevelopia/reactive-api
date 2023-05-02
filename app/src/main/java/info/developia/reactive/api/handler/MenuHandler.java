@@ -1,11 +1,11 @@
 package info.developia.reactive.api.handler;
 
 import info.developia.reactive.api.model.Menu;
-import ratpack.handling.Context;
+import ratpack.core.handling.Context;
 
 import java.util.Map;
 
-import static ratpack.jackson.Jackson.json;
+import static ratpack.core.jackson.Jackson.json;
 
 public class MenuHandler {
     private final Map<String, Menu> menus = Map.of(

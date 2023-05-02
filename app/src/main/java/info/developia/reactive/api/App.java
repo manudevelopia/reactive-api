@@ -3,7 +3,7 @@ package info.developia.reactive.api;
 import info.developia.reactive.api.handler.CORSHandler;
 import info.developia.reactive.api.handler.MenuHandler;
 import info.developia.reactive.api.handler.UserHandler;
-import ratpack.server.RatpackServer;
+import ratpack.core.server.RatpackServer;
 
 public class App {
     UserHandler userHandler = new UserHandler();

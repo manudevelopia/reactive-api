@@ -1,9 +1,9 @@
 package info.developia.reactive.api.handler;
 
 import info.developia.reactive.api.model.User;
-import ratpack.handling.Context;
+import ratpack.core.handling.Context;
 
-import static ratpack.jackson.Jackson.json;
+import static ratpack.core.jackson.Jackson.json;
 
 public class UserHandler {
     private final User user = new User("Manu");
