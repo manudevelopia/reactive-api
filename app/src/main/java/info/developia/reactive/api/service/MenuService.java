@@ -5,11 +5,12 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 
 import java.util.Collection;
+import java.util.List;
 
 public class MenuService {
     private final MenuRepository menuRepository = new MenuRepository();
 
-    public Single<Collection<Menu>> getMenus() {
+    public Single<List<Menu>> getMenus() {
         return menuRepository.getMenus();
     }
 

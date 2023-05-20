@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 public class MenuRepository {
@@ -17,8 +18,8 @@ public class MenuRepository {
             "6", new Menu("Menu 6"), "7", new Menu("Menu 7"), "8", new Menu("Menu 8"), "9", new Menu("Menu 9"), "10", new Menu("Menu 10")
     );
 
-    public Single<Collection<Menu>> getMenus() {
-        var menus = menuMap.values();
+    public Single<List<Menu>> getMenus() {
+        var menus = menuMap.values().stream().toList();
         LOG.info("Recovered {} menus", menus.size());
         return Single.just(menus);
     }
