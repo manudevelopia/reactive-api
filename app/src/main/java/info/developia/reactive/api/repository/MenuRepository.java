@@ -1,4 +1,4 @@
-package info.developia.reactive.api.service;
+package info.developia.reactive.api.repository;
 
 import info.developia.reactive.api.model.Menu;
 import io.reactivex.Observable;
@@ -6,7 +6,6 @@ import io.reactivex.Single;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 

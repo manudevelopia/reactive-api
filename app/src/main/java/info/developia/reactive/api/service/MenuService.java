@@ -1,10 +1,10 @@
 package info.developia.reactive.api.service;
 
 import info.developia.reactive.api.model.Menu;
+import info.developia.reactive.api.repository.MenuRepository;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
-import java.util.Collection;
 import java.util.List;
 
 public class MenuService {

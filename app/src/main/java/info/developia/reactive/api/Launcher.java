@@ -19,7 +19,9 @@ public class Launcher {
         RatpackServer.start(server -> server
                 .handlers(chain -> chain
                         .all(new CORSHandler())
-                        .get("user", userHandler::hello)
+                        .get("users/:id", userHandler::user)
+                        .get("users", userHandler::users)
+                        .get("usersStream", userHandler::usersStream)
                         .get("menus", menuHandler::getMenus)
                         .get("menusStream", menuHandler::getMenuStream)
                         .get("menus/:id", menuHandler::getMenu)
