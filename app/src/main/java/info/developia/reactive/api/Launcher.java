@@ -6,12 +6,12 @@ import info.developia.reactive.api.handler.UserHandler;
 import ratpack.core.server.RatpackServer;
 import ratpack.rx2.RxRatpack;
 
-public class App {
+public class Launcher {
     UserHandler userHandler = new UserHandler();
     MenuHandler menuHandler = new MenuHandler();
 
     public static void main(String[] args) throws Exception {
-        new App().run();
+        new Launcher().run();
     }
 
     private void run() throws Exception {
