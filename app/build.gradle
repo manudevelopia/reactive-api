@@ -2,6 +2,7 @@ plugins {
     id 'groovy'
     id 'application'
     id 'io.ratpack.ratpack-java' version '2.0.0-rc-1'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 repositories {
@@ -11,6 +12,10 @@ repositories {
 dependencies {
     implementation 'com.konghq:unirest-java:3.14.2'
     runtimeOnly 'org.slf4j:slf4j-simple:1.7.21'
+
+//    runtimeOnly "org.apache.logging.log4j:log4j-slf4j-impl:${log4j}"
+//    runtimeOnly "org.apache.logging.log4j:log4j-api:${log4j}"
+//    runtimeOnly "org.apache.logging.log4j:log4j-core:${log4j}"
 }
 
 testing {
