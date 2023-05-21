@@ -1,6 +1,5 @@
 package info.developia.reactive.api.service;
 
-import info.developia.reactive.api.Persitence;
 import info.developia.reactive.api.model.User;
 import info.developia.reactive.api.repository.UserRepository;
 import io.reactivex.Observable;
@@ -8,8 +7,9 @@ import io.reactivex.Single;
 
 import java.util.List;
 
+import static info.developia.reactive.api.Launcher.persitence;
+
 public class UserService {
-    private final Persitence persitence = new Persitence();
     private final UserRepository userRepository = new UserRepository(persitence);
 
     public Single<List<User>> getUsers() {

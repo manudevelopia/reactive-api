@@ -1,6 +1,5 @@
 package info.developia.reactive.api;
 
-import info.developia.reactive.api.mapper.UserMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
@@ -13,8 +12,8 @@ import javax.sql.DataSource;
 public class Persitence {
     private SqlSessionFactory sqlSessionFactory;
 
-    public Persitence() {
-        sqlSessionFactory = buildSqlSessionFactory(" info.developia.reactive.api.mapper");
+    public Persitence(String packageName) {
+        sqlSessionFactory = buildSqlSessionFactory(packageName);
     }
 
     private static SqlSessionFactory buildSqlSessionFactory(String mappersPackageName) {
@@ -25,8 +24,7 @@ public class Persitence {
                 "docker");
         Environment environment = new Environment("Default", new JdbcTransactionFactory(), dataSource);
         Configuration configuration = new Configuration(environment);
-        configuration.addMapper(UserMapper.class);
-//        configuration.addMappers(mappersPackageName);
+        configuration.addMappers(mappersPackageName);
         return new SqlSessionFactoryBuilder().build(configuration);
     }
 

@@ -7,8 +7,10 @@ import ratpack.core.server.RatpackServer;
 import ratpack.rx2.RxRatpack;
 
 public class Launcher {
-    UserHandler userHandler = new UserHandler();
-    MenuHandler menuHandler = new MenuHandler();
+    public static final Persitence persitence = new Persitence("info.developia.reactive.api.repository.mapper");
+    private final UserHandler userHandler = new UserHandler();
+    private final MenuHandler menuHandler = new MenuHandler();
+
 
     public static void main(String[] args) throws Exception {
         new Launcher().run();

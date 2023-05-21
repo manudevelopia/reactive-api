@@ -1,4 +1,4 @@
-package info.developia.reactive.api.mapper;
+package info.developia.reactive.api.repository.mapper;
 
 import info.developia.reactive.api.model.User;
 import org.apache.ibatis.annotations.Select;

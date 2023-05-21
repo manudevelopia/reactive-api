@@ -4,7 +4,7 @@ import info.developia.reactive.api.PersistenceException;
 import info.developia.reactive.api.Persitence;
 import info.developia.reactive.api.Repository;
 import info.developia.reactive.api.exception.ReactiveApiException;
-import info.developia.reactive.api.mapper.UserMapper;
+import info.developia.reactive.api.repository.mapper.UserMapper;
 import info.developia.reactive.api.model.User;
 import io.reactivex.Observable;
 import io.reactivex.Single;
