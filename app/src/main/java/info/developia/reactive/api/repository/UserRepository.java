@@ -1,8 +1,8 @@
 package info.developia.reactive.api.repository;
 
-import info.developia.reactive.api.PersistenceException;
-import info.developia.reactive.api.Persitence;
-import info.developia.reactive.api.Repository;
+import info.developia.persistence.PersistenceException;
+import info.developia.persistence.Persitence;
+import info.developia.persistence.Repository;
 import info.developia.reactive.api.exception.ReactiveApiException;
 import info.developia.reactive.api.repository.mapper.UserMapper;
 import info.developia.reactive.api.model.User;

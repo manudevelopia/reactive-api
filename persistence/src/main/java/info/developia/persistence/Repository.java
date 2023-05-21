@@ -1,5 +1,4 @@
-package info.developia.reactive.api;
-
+package info.developia.persistence;
 
 import io.reactivex.Single;
 import org.apache.ibatis.session.SqlSession;

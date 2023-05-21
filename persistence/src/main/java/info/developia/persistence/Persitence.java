@@ -1,4 +1,4 @@
-package info.developia.reactive.api;
+package info.developia.persistence;
 
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.mapping.Environment;

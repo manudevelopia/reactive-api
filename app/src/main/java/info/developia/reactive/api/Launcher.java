@@ -1,5 +1,6 @@
 package info.developia.reactive.api;
 
+import info.developia.persistence.Persitence;
 import info.developia.reactive.api.handler.CORSHandler;
 import info.developia.reactive.api.handler.MenuHandler;
 import info.developia.reactive.api.handler.UserHandler;
