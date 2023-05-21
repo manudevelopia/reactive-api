@@ -7,10 +7,10 @@ import io.reactivex.Single;
 
 import java.util.List;
 
-import static info.developia.reactive.api.Launcher.persitence;
+import static info.developia.reactive.api.Launcher.PERSISTENCE;
 
 public class UserService {
-    private final UserRepository userRepository = new UserRepository(persitence);
+    private final UserRepository userRepository = new UserRepository(PERSISTENCE);
 
     public Single<List<User>> getUsers() {
         return userRepository.getUsers();

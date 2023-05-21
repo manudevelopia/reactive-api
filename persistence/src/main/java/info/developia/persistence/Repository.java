@@ -1,6 +1,5 @@
 package info.developia.persistence;
 
-import io.reactivex.Single;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -11,8 +10,8 @@ public abstract class Repository<T> {
     private final SqlSessionFactory sqlSessionFactory;
     private final Class<T> typeParameterClass;
 
-    public Repository(Persitence persitence) {
-        this.sqlSessionFactory = persitence.getSession();
+    public Repository(Persistence persistence) {
+        this.sqlSessionFactory = persistence.session();
         typeParameterClass = getTypeParameterClass();
     }
 
@@ -25,8 +24,8 @@ public abstract class Repository<T> {
         return sqlSessionFactory;
     }
 
-    protected <R> Single<R> repository(Function<T, R> function) {
-        return Single.just(applyFunction(function));
+    protected <R> R repository(Function<T, R> function) {
+        return applyFunction(function);
     }
 
     private <R> R applyFunction(Function<T, R> function) {

@@ -1,6 +1,6 @@
 package info.developia.reactive.api;
 
-import info.developia.persistence.Persitence;
+import info.developia.persistence.Persistence;
 import info.developia.reactive.api.handler.CORSHandler;
 import info.developia.reactive.api.handler.MenuHandler;
 import info.developia.reactive.api.handler.UserHandler;
@@ -8,7 +8,7 @@ import ratpack.core.server.RatpackServer;
 import ratpack.rx2.RxRatpack;
 
 public class Launcher {
-    public static final Persitence persitence = new Persitence("info.developia.reactive.api.repository.mapper");
+    public static final Persistence PERSISTENCE = new Persistence("info.developia.reactive.api.repository.mapper");
     private final UserHandler userHandler = new UserHandler();
     private final MenuHandler menuHandler = new MenuHandler();
 

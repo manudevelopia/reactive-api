@@ -13,8 +13,6 @@ repositories {
 dependencies {
     implementation project(':persistence')
     implementation 'io.ratpack:ratpack-rx2:2.0.0-rc-1'
-    implementation 'com.konghq:unirest-java:3.14.2'
-    implementation 'org.mybatis:mybatis:3.5.13'
     runtimeOnly 'org.postgresql:postgresql:42.5.4'
     runtimeOnly 'org.slf4j:slf4j-simple:1.7.21'
 

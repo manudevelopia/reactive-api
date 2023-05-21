@@ -1,0 +1,21 @@
+plugins {
+    id 'groovy'
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api 'org.mybatis:mybatis:3.5.13'
+}
+
+testing {
+    suites {
+        test {
+            useSpock('2.4-M1-groovy-4.0')
+        }
+    }
+}
+

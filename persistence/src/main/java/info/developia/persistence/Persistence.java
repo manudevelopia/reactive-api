@@ -9,14 +9,14 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import javax.sql.DataSource;
 
-public class Persitence {
-    private SqlSessionFactory sqlSessionFactory;
+public class Persistence {
+    private final SqlSessionFactory sqlSessionFactory;
 
-    public Persitence(String packageName) {
+    public Persistence(String packageName) {
         sqlSessionFactory = buildSqlSessionFactory(packageName);
     }
 
-    private static SqlSessionFactory buildSqlSessionFactory(String mappersPackageName) {
+    private SqlSessionFactory buildSqlSessionFactory(String mappersPackageName) {
         DataSource dataSource = new PooledDataSource(
                 "org.postgresql.Driver",
                 "jdbc:postgresql://localhost:5432/postgres",
@@ -28,7 +28,7 @@ public class Persitence {
         return new SqlSessionFactoryBuilder().build(configuration);
     }
 
-    public SqlSessionFactory getSession() {
+    public SqlSessionFactory session() {
         return sqlSessionFactory;
     }
 }
