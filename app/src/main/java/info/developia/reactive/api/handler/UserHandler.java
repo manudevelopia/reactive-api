@@ -12,7 +12,7 @@ public class UserHandler {
 
     public void user(Context ctx) {
         String id = ctx.getPathTokens().get("id");
-        RxRatpack.promise(userService.getUser(id))
+        RxRatpack.promise(userService.getUser(Long.valueOf(id)))
                 .onError(ctx::error)
                 .then(user -> ctx.render(json(user)));
     }

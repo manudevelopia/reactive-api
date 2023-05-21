@@ -1,6 +1,9 @@
 package info.developia.reactive.api.repository;
 
+import info.developia.reactive.api.PersistenceException;
 import info.developia.reactive.api.Persitence;
+import info.developia.reactive.api.Repository;
+import info.developia.reactive.api.exception.ReactiveApiException;
 import info.developia.reactive.api.mapper.UserMapper;
 import info.developia.reactive.api.model.User;
 import io.reactivex.Observable;
@@ -11,16 +14,19 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class UserRepository {
+public class UserRepository extends Repository<UserMapper> {
     private static final Logger LOG = LoggerFactory.getLogger(UserRepository.class);
-    private final Persitence persitence = new Persitence();
+
+    public UserRepository(Persitence persitence) {
+        super(persitence);
+    }
 
     public Single<List<User>> getUsers() {
-        try (SqlSession session = persitence.getSession().openSession()) {
-            var users = session.getMapper(UserMapper.class).getAll();
-            return Single.just(users);
-        } catch (Exception e) {
-            throw new RuntimeException();
+        try {
+            return repository(UserMapper::getAll);
+        } catch (PersistenceException e) {
+            LOG.error("Error retrieving user list, error {}", e.getMessage());
+            throw new ReactiveApiException();
         }
     }
 
@@ -28,7 +34,7 @@ public class UserRepository {
     public Observable<User> getUsersStream() {
         LOG.info("Recovered menus Stream");
         return Observable.create(subscriber -> {
-            try (SqlSession session = persitence.getSession().openSession()) {
+            try (SqlSession session = getSession().openSession()) {
                 session.getMapper(UserMapper.class).getAll().forEach(subscriber::onNext);
             } catch (Exception e) {
                 subscriber.onError(e);
@@ -38,9 +44,12 @@ public class UserRepository {
         });
     }
 
-//    public Single<User> getUser(String id) {
-//        var menu = menuMap.get(id);
-//        LOG.info("Recovered menu with id {}", id);
-//        return Single.just(menu);
-//    }
+    public Single<User> getUser(long id) {
+        try {
+            return repository((userMapper) -> userMapper.getById(id));
+        } catch (PersistenceException e) {
+            LOG.error("Error retrieving user by id {}, error {}", id, e.getMessage());
+            throw new ReactiveApiException();
+        }
+    }
 }
