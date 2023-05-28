@@ -13,12 +13,10 @@ repositories {
 dependencies {
     implementation project(':persistence')
     implementation 'io.ratpack:ratpack-rx2:2.0.0-rc-1'
+
     runtimeOnly 'org.postgresql:postgresql:42.5.4'
     runtimeOnly 'org.slf4j:slf4j-simple:1.7.21'
-
-//    runtimeOnly "org.apache.logging.log4j:log4j-slf4j-impl:${log4j}"
-//    runtimeOnly "org.apache.logging.log4j:log4j-api:${log4j}"
-//    runtimeOnly "org.apache.logging.log4j:log4j-core:${log4j}"
+    runtimeOnly 'ch.qos.logback:logback-classic:1.4.7'
 }
 
 testing {
